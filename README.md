@@ -3,8 +3,8 @@
 
 A modern, AI-powered journaling application that helps track your emotions and provides insights into your mental wellbeing.
 
-![Dashboard Screenshot](./public/screenshots/s1.png)
-![Journal Entry Screenshot](./public/screenshots/s2.png)
+![Dashboard Screenshot](./screenshots/s1.png)
+![Journal Entry Screenshot](./screenshots/s2.png)
 
 ## Features
 
