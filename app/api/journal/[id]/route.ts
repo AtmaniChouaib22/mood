@@ -3,10 +3,11 @@ import { getUserByClerkId } from '@/utils/auth'
 import prisma from '@/utils/db'
 import { NextResponse } from 'next/server'
 
-export async function PATCH(request: Request, { params }) {
+export async function PATCH(request: Request, { params }: { params: { id: string } }) {
   const { id } = await params
   const { content } = await request.json()
   const user = await getUserByClerkId()
+
   const updatedEntry = await prisma.journalEntry.update({
     where: {
       userId_id: {
@@ -25,12 +26,12 @@ export async function PATCH(request: Request, { params }) {
     where: {
       entryId: updatedEntry.id,
     },
+    update: { ...analysis },
     create: {
+      userId: user.id,
       entryId: updatedEntry.id,
       ...analysis,
     },
-    update: analysis,
   })
-  console.log(updated)
   return NextResponse.json({ data: { ...updatedEntry, analysis: updated } })
 }
