@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { ClerkProvider } from '@clerk/nextjs'
+import { LoadingProvider } from './context/LoadingContext'
+import LoadingIndicator from './components/LoadingIndicator'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,7 +17,12 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className="bg-zinc-400/10">{children}</body>
+        <body className="bg-zinc-400/10">
+        <LoadingProvider> 
+           <LoadingIndicator />
+           {children}
+        </LoadingProvider>
+        </body>
       </html>
     </ClerkProvider>
   )

@@ -1,11 +1,14 @@
 'use client'
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { HiHome, HiOutlineBookOpen, HiClock, HiMenuAlt2, HiChevronLeft } from 'react-icons/hi';
 
-const Sidebar = () => {
-    const [isOpen, setIsOpen] = useState(true);
+interface SidebarProps {
+    isOpen: boolean;
+    setIsOpen: (isOpen: boolean) => void;
+}
 
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
     };
@@ -13,13 +16,17 @@ const Sidebar = () => {
     return (
         <div className={`flex flex-col h-full bg-gradient-to-b from-gray-800 to-gray-900 text-white
             ${isOpen ? 'w-52 md:w-80' : 'w-20'} transition-all duration-300 ease-in-out
-            fixed left-0 top-0 shadow-xl z-20`}>
+            fixed left-0 top-0 shadow-xl z-20
+            ${isOpen ? 'translate-x-0' : 'sm:translate-x-0 -translate-x-full'}`}>
             
-            {/* Toggle Button */}
+            {/* Toggle Button - Fixed positioning */}
             <button 
                 onClick={toggleSidebar} 
-                className={`absolute top-5 ${isOpen ? 'right-0' : 'right-0 -mr-4'} 
-                p-2 rounded-full bg-blue-600 hover:bg-blue-700 transition-colors`}
+                className={`absolute top-5 
+                    ${isOpen 
+                        ? 'right-4' // Move inside the sidebar when open
+                        : 'sm:right-0 right-full translate-x-[40px]'} // Position outside the sidebar when closed
+                    p-2 rounded-full bg-blue-600 hover:bg-blue-700 transition-colors shadow-md`}
                 aria-label={isOpen ? 'Close sidebar' : 'Open sidebar'}
             >
                 {isOpen ? <HiChevronLeft size={20} /> : <HiMenuAlt2 size={20} />}
@@ -39,14 +46,15 @@ const Sidebar = () => {
                 </div>
             </div>
 
+            {/* Rest of the component remains unchanged */}
             {/* Links */}
-            <nav className="flex flex-col mt-8 space-y-2 px-3">
+            <nav className="flex flex-col mt-8 space-y-2 px-3 sm:px-4">
                 <Link 
                     href="/" 
                     className={`flex items-center py-3 px-4 rounded-lg font-medium hover:bg-gray-700/50 transition-all
                         ${isOpen ? 'justify-start space-x-4' : 'justify-center'}`}
                 >
-                    <HiHome size={22} className="text-blue-400" />
+                    <HiHome size={22} className="text-blue-400 min-w-[22px] min-h-[22px]" />
                     {isOpen && <span>Home</span>}
                 </Link>
                 <Link 
@@ -54,7 +62,7 @@ const Sidebar = () => {
                     className={`flex items-center py-3 px-4 rounded-lg font-medium hover:bg-gray-700/50 transition-all
                         ${isOpen ? 'justify-start space-x-4' : 'justify-center'}`}
                 >
-                    <HiOutlineBookOpen size={22} className="text-purple-400" />
+                    <HiOutlineBookOpen size={22} className="text-purple-400 min-w-[22px] min-h-[22px]" />
                     {isOpen && <span>Journal</span>}
                 </Link>
                 <Link 
@@ -62,7 +70,7 @@ const Sidebar = () => {
                     className={`flex items-center py-3 px-4 rounded-lg font-medium hover:bg-gray-700/50 transition-all
                         ${isOpen ? 'justify-start space-x-4' : 'justify-center'}`}
                 >
-                    <HiClock size={22} className="text-green-400" />
+                    <HiClock size={22} className="text-green-400 min-w-[22px] min-h-[22px]" />
                     {isOpen && <span>History</span>}
                 </Link>
             </nav>
