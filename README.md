@@ -1,10 +1,9 @@
-````markdown
 # Mood Journal
 
 A modern, AI-powered journaling application that helps track your emotions and provides insights into your mental wellbeing.
 
-![Dashboard Screenshot](./screenshots/s1.png)
-![Journal Entry Screenshot](./screenshots/s2.png)
+![Dashboard Screenshot](./s1.png)
+![Journal Entry Screenshot](./s2.png)
 
 ## Features
 
@@ -74,57 +73,4 @@ A modern, AI-powered journaling application that helps track your emotions and p
 
 ### Journal Entries
 
-Write your thoughts in the editor and click **"Save & Analyze"** to get AI-generated insights about your mood, subject matter, and emotional tone.
-
-### History View
-
-Review past entries and track how your mood has changed over time.
-
-### Dashboard
-
-See an overview of your journaling habits and emotional trends.
-
-## Project Structure
-
-```
-/public/screenshots/ # Screenshots for the README
-/src/ # Source code
-/components/ # React components
-/pages/ # Next.js pages
-/styles/ # Tailwind CSS styles
-```
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository.
-2. Create your feature branch:
-   ```bash
-   git checkout -b feature/amazing-feature
-   ```
-3. Commit your changes:
-   ```bash
-   git commit -m 'Add some amazing feature'
-   ```
-4. Push to the branch:
-   ```bash
-   git push origin feature/amazing-feature
-   ```
-5. Open a Pull Request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
-
-## Acknowledgments
-
-- Built with [Next.js](https://nextjs.org/).
-- Authentication by [Clerk](https://clerk.dev/).
-- AI analysis powered by [OpenAI](https://openai.com/).
-- Database management with [Prisma](https://www.prisma.io/).
-- Advanced AI workflows by [LangChain](https://langchain.com/).
-- Schema validation with [Zod](https://zod.dev/).
-- Icons from [Heroicons](https://heroicons.com/).
-- Made with ❤️ by Chouaib Atmani.
-````
+Write your thoughts in
