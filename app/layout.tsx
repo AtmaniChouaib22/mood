@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body>{children}</body>
+        <body className="bg-zinc-400/10">{children}</body>
       </html>
     </ClerkProvider>
   )

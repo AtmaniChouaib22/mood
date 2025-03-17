@@ -9,14 +9,15 @@ export const POST = async () => {
   const entry = await prisma.journalEntry.create({
     data: {
       userId: user.id,
-      content: 'write about your day',
+      content: 'hello world',
+      analysis: {},
     },
   })
-  console.log('entry', entry)
+  
   const analysis = await analyze(entry)
-  console.log('analysis', analysis)
   await prisma.analysis.create({
     data: {
+      userId: user.id,
       entryId: entry.id,
       ...analysis,
     },
